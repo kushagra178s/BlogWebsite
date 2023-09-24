@@ -1,5 +1,6 @@
-import React from "react";
+import React , {useState} from 'react';
 import { Link, useNavigate } from "react-router-dom";
+import axios from 'axios';
 function Login() {
   const [inputs, setInputs] = useState({
     username: "",
@@ -26,8 +27,8 @@ function Login() {
       // console.log("data", res.data);
       navigate("/");
     } catch (err) {
-      // console.log("error", err);
-      setError(err.response.data);
+      console.log("error", err);
+      // setError(err.response.data);
     }
   };
 
