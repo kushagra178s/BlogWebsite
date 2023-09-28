@@ -142,7 +142,7 @@ form {
   display: flex;
   gap: 10px;
   color: white;
-  padding: 5px;
+  /* padding: 5px; */
   border-radius: 2%;
 }
 
@@ -151,8 +151,8 @@ form {
 }
 
 .posts .post .img {
-  flex: 2;
-  position: relative;
+  /* flex: 2; */
+  /* position: relative; */
 }
 
 .posts .post img {
