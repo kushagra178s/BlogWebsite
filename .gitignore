@@ -1,2 +1,4 @@
 /api/node_modules
 /node_modules
+/client/public/upload
+/api/uploads
