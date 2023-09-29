@@ -2,19 +2,27 @@
   margin: 0;
   padding: 0;
 }
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+}
 /* login and registration component */
 .auth {
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: lightgreen;
+  background-color: teal;
   padding: 20px;
 }
 
 .auth h1 {
   font-size: 20px;
-  color: teal;
+  color: rgb(15, 48, 214);
   background-color: rgb(51, 225, 135);
   padding: 10px;
   margin-bottom: 20px;
@@ -41,7 +49,7 @@ form {
 }
 
 .auth button {
-  background-color: aqua;
+  background-color: #3498db;
   padding: 10px;
   border: none;
   cursor: pointer;
@@ -89,12 +97,14 @@ form {
   font-size: 20px;
   font-weight: 600;
 }
+
 .navbar span {
   cursor: pointer;
 }
 
 .navbar .write {
-  background-color: rgb(181, 175, 20);
+  padding: 2px;
+  background-color: rgb(18, 74, 164);
   width: 50px;
   height: 50px;
   border-radius: 50%;
@@ -106,10 +116,16 @@ form {
 .navbar .write:hover {
   background-color: rgb(136, 229, 195);
 }
-
+.navbar h6:hover {
+  background-color: rgb(136, 229, 195);
+}
 /* footer */
 
 .Footer .container {
+  /* position: fixed;
+  bottom: 0;
+  right : 0;
+  left:0; */
   background-color: teal;
   margin-top: 40px;
   padding: 10px;
@@ -136,13 +152,12 @@ form {
   gap: 85px;
 }
 
-
 .posts .post {
   background-color: #1c2238;
   display: flex;
   gap: 10px;
   color: white;
-  /* padding: 5px; */
+  padding: 5px;
   border-radius: 2%;
 }
 
@@ -151,28 +166,28 @@ form {
 }
 
 .posts .post .img {
-  /* flex: 2; */
-  /* position: relative; */
+  /* flex: 1; */
+  position: relative;
 }
 
 .posts .post img {
   width: 200px;
-  max-height: 400px;
-  object-fit: cover;
+  height: 250px;
+  /* object-fit: cover; */
   border: 6px solid rgb(179, 24, 218);
   border-radius: 5%;
 }
 
 .posts .post .content {
-  border: 1px solid rgb(240, 33, 240);
-  border-radius: 2%;
+  /* border: 1px solid rgb(240, 33, 240); */
+  /* border-radius: 2%; */
   padding: 5px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
 .posts .post button {
-  background-color: aqua;
+  background-color: #3498db;
   padding: 10px;
   border: none;
   cursor: pointer;
@@ -182,6 +197,7 @@ form {
 /* single */
 
 .single {
+  justify-content: space-between;
   padding: 0 45px;
   margin-top: 15px;
   display: flex;
@@ -195,6 +211,7 @@ form {
 
 .content img {
   width: 75%;
+  width: 550px;
   height: 250px;
   object-fit: cover;
   margin-bottom: 15px;
@@ -240,7 +257,9 @@ form {
 
 /* menu */
 .menu {
-  /* flex:2; */
+  /* flex:5; */
+  /* margin-left: 150px; */
+  max-width: 400px;
   display: flex;
   flex-direction: column;
   gap: 25px;
@@ -261,7 +280,7 @@ form {
   object-fit: cover;
 }
 .menu .post button {
-  background-color: rgb(169, 241, 241);
+  background-color: #3498db;
   color: black;
   padding: 10px;
   border: none;
@@ -303,7 +322,7 @@ form {
   gap: 20px;
   /* border: 1 px solid lightgray; */
 }
-.add .menu .item{
+.add .menu .item {
   text-align: center;
   gap: 5px;
   background-color: lightgray;
@@ -315,22 +334,22 @@ form {
   justify-content: space-between;
   font-size: 12px;
 }
-.add .menu .item h1{
+.add .menu .item h1 {
   font-size: 20px;
 }
-.add .menu .item .file{
+.add .menu .item .file {
   text-decoration: underline;
   cursor: pointer;
 }
-.add .menu .item .buttons{
+.add .menu .item .buttons {
   display: flex;
   justify-content: space-between;
 }
 
-.add .menu .item .cat{
+.add .menu .item .cat {
   font-size: 14px;
   font-weight: 600;
-  display:flex ;
+  display: flex;
   align-items: center;
   color: teal;
   gap: 2px;

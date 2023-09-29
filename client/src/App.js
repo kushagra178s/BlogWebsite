@@ -11,15 +11,15 @@ import Home from "./pages/Home";
 import Single from "./pages/Single";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
-import "./style.css";
+import "./style.css"
 
 const Layout = () => {
     return (
-        <>
+        <div className='app'>
             <Navbar/>
             <Outlet/> 
             <Footer/>
-        </>
+        </div>
     );
 };
 

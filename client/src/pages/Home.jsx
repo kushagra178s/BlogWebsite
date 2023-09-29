@@ -12,18 +12,17 @@ function Home() {
         setPosts(res.data);
         // console.log("posts", posts); // Log the data to verify it's coming correctly
       } catch (error) {
-        console.log('error', error);
+        console.log("error", error);
       }
     };
     fetchData();
   }, [cat]);
 
-    // Add a useEffect to log 'posts' whenever it changes
-    useEffect(() => {
-      console.log("posts after set:", posts);
-    }, [posts]);
-  
-  
+  // Add a useEffect to log 'posts' whenever it changes
+  // useEffect(() => {
+  //   console.log("posts after set:", posts);
+  // }, [posts]);
+
   const data = [
     // {
     //   id: 1,
@@ -31,7 +30,7 @@ function Home() {
     //     "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt, nisi!",
     //   desc: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fuga repellat maiores repudiandae nisi, consequatur neque sequi corporis qui ab veritatis sapiente natus. Asperiores, odit in!",
     //   img: "https://picsum.photos/200",
-    // }, 
+    // },
     // {
     //   id: 2,
     //   title:
@@ -61,36 +60,52 @@ function Home() {
     //   img: "https://picsum.photos/200",
     // },
   ];
+
+  const getText = (html) => {
+    const doc = new DOMParser().parseFromString(html, "text/html");
+    return doc.body.textContent;
+  }
+
   return (
     <div className="home">
       <div className="posts">
         {posts.map(function (post) {
+          const imagesrc = `../upload/${post?.img}`;
           return (
             <div className="post" key={post.id}>
               {post.id % 2 != 0 ? (
                 <>
                   <div className="img">
-                    <img src={post.img} alt="" />
+                    <img src={imagesrc} alt="" />
                   </div>
                   <div className="content">
-                    <Link className="link" to={`/post/${post.id}`}>
+                    <Link
+                      className="link"
+                      to={`/post/${post.id}`}
+                      state={{ cat: cat }}
+                    >
                       <h1 style={{ color: "white" }}>{post.title}</h1>
                     </Link>
-                    <p>{post.desc}</p>
+                    <p>{getText(post.desc)}</p>
                     <button>Read More</button>
                   </div>
                 </>
-              ) : (
+              ) : 
+              (
                 <>
                   <div className="content">
-                    <Link className="link" to={`/post/${post.id}`}>
+                    <Link
+                      className="link"
+                      to={`/post/${post.id}`}
+                      state={{ cat: cat }}
+                    >
                       <h1 style={{ color: "white" }}>{post.title}</h1>
                     </Link>
-                    <p>{post.desc}</p>
+                    <p>{getText(post.desc)}</p>
                     <button>Read More</button>
                   </div>
                   <div className="img">
-                    <img src={post.img} alt="" />
+                    <img src={imagesrc} alt="" />
                   </div>
                 </>
               )}
