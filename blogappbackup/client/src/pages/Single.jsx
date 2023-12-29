@@ -15,66 +15,57 @@ function Single() {
 
   const navigate = useNavigate();
 
+  //  // console.log("currentuser", currentUser);
   useEffect(() => {
+   // console.log("location", location.state.cat);
     const fetchData = async () => {
       try {
         const res = await axios.get(
           `http://localhost:8800/api/posts/${postId}`
         );
+        // Set the fetched data directly to the 'post' state
         setPost(res.data);
+        //  // console.log("post", post); // Log the data to verify it's coming correctly
       } catch (error) {
-        console.log("error", error);
+         // console.log("error", error);
       }
     };
     fetchData();
   }, [postId]);
-    
-  // Add a useEffect to log 'posts' whenever it changes
-  useEffect(() => {
-    // console.log("posts after set:", post.cat);
-    console.log("authcontext", AuthContext);
- }, [post]);
-
   const handleDelete = async () => {
     try {
       const res = await axios.delete(
         `http://localhost:8800/api/posts/${postId}`
       );
+      // Set the fetched data directly to the 'post' state
       navigate("/");
+      //  // console.log("post", post); // Log the data to verify it's coming correctly
     } catch (error) {
-      console.log("error", error);
+       // console.log("error", error);
     }
   };
-
+  // client\public\upload\1696014267894Screenshot (1).png
+  const imagesrc = `../upload/${post?.img}`;
   const getText = (html) => {
     const doc = new DOMParser().parseFromString(html, "text/html");
-    return doc.body.textContent; 
-  };
+    return doc.body.textContent;
+  }  
 
   return (
     <div className="single">
       <div className="current-post">
         <div className="content">
-          <img
-            src={
-              post?.img
-                ? require(`../uploads/${post.img}`)
-                : "https://placehold.co/600x400"
-            }
-            width="350px"
-            alt=""
-          />
+          {/* <h1>{imagesrc}</h1> */}
+          <img src = {imagesrc} alt="" />
         </div>
 
         <div className="user">
           {post.userImg && <img src={post.userImg} alt="" />}
           <div className="info">
-            <h2>
-              <em>{post.username}</em>
-            </h2>
+            <h2>{post.username}</h2>
             <p>{moment(post.date).fromNow()}</p>
           </div>
-          {currentUser?.username == post.username && (
+          {currentUser.username == post.username && (
             <div className="edit">
               <Link to={`/write?edit=2`} state={post}>
                 <img
@@ -93,12 +84,11 @@ function Single() {
           )}
         </div>
         <div className="post-content">
-          <h1><u>{post.title}</u></h1>
-          <br />
+          <h1>{post.title}</h1>
           <p>{getText(post.desc)}</p>
         </div>
       </div>
-      <Menu post={post} />
+      <Menu cat={location.state.cat}/>
     </div>
   );
 }

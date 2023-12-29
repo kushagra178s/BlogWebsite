@@ -1,15 +1,17 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
-function Register() {
+import { AuthContext } from "../context/authContext";
+function Login() {
   const [inputs, setInputs] = useState({
     username: "",
-    email: "",
     password: "",
   });
 
   const [error, setError] = useState(null);
   const navigate = useNavigate();
+
+  const { login } = useContext(AuthContext);
 
   const handleChange = (e) => {
     setInputs((prev) => ({ ...prev, [e.target.name]: [e.target.value] }));
@@ -17,13 +19,12 @@ function Register() {
 
   // console.log(inputs);
   // http://localhost:8800/api/
-  
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post("http://localhost:8800/api/auth/register", inputs);
-      // console.log("data", res.data);
-      navigate('/login');
+      await login(inputs);
+      navigate("/");
     } catch (err) {
       // console.log("error", err);
       setError(err.response.data);
@@ -32,36 +33,27 @@ function Register() {
 
   return (
     <div className="auth">
-      <h1>Register</h1>
+      <h1>Login</h1>
       <form action="">
         <input
-          required
           type="text"
           placeholder="username"
           name="username"
           onChange={handleChange}
         />
         <input
-          required
-          type="email"
-          placeholder="email"
-          name="email"
-          onChange={handleChange}
-        />
-        <input
-          required
-          type="password"
+          type="password "
           placeholder="password"
           name="password"
           onChange={handleChange}
         />
         <button onClick={handleSubmit}>click</button>
         {error && <p>{error}!</p>}
-        <span style={{fontSize:"20px"}}>
-          already have an account <Link to="/Login">Login</Link>{" "}
+        <span>
+          dont have an account <Link to="/register">Register</Link>{" "}
         </span>
       </form>
     </div>
   );
 }
-export default Register;
+export default Login;

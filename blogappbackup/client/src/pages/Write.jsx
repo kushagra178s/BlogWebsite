@@ -4,6 +4,7 @@ import "react-quill/dist/quill.snow.css";
 import axios from "axios";
 import { useNavigate, useLocation } from "react-router-dom";
 import moment from "moment";
+
 function write() {
   const navigate = useNavigate();
   const state = useLocation().state;
@@ -24,9 +25,10 @@ function write() {
       console.log(res.data);
       return res.data;
     } catch (err) {
-      console.log("error = ",err);
+      console.log(err);
     }
   };
+
   const handleClick = async (e) => {
     e.preventDefault();
     const imgUrl = await upload();
@@ -46,7 +48,7 @@ function write() {
             date: moment(Date.now()).format("YYYY-MM-DD HH:mm:ss"),
             uid: userId,
           });
-      navigate("/");
+          navigate("/");
     } catch (err) {
       console.log("here is the error", err);
     }
@@ -76,7 +78,7 @@ function write() {
             <b>Visiblity: </b> Public{" "}
           </span>
           <input
-            style={{ fontSize:"20px", paddingLeft:"15%" }}
+            style={{ display: "none" }}
             type="file"
             id="file"
             name=""
@@ -86,7 +88,7 @@ function write() {
           />
           <label htmlFor="file">
             <b>
-              <u style={{ fontSize:"20px"}}>Upload Image</u>
+              <u>Upload Image</u>
             </b>
           </label>
           <div className="buttons">

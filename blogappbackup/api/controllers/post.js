@@ -7,7 +7,7 @@ export const getPosts = (req, res) => {
   const q = req.query.cat
     ? "SELECT * FROM posts WHERE cat=?"
     : "SELECT * FROM posts";
-  console.log("category=",req.query);
+
   db.query(q, [req.query.cat], (err, data) => {
     if (err) {
       return res.status(500).send(err);
@@ -41,7 +41,7 @@ export const addPost = (req, res) => {
   const q =
     "INSERT INTO posts ( `title`, `desc`, `img`, `cat`, `date`, `uid` ) VALUES ( ? ) ";
 
-  console.log("request image", req.body.img);
+    console.log("request", req.body);
   const values = [
     req.body.title,
     req.body.desc,
@@ -63,7 +63,7 @@ export const addPost = (req, res) => {
 };
 
 export const deletePost = (req, res) => {
-  const { currentUser, logout } = useContext(AuthContext);
+  // const { currentUser, logout } = useContext(AuthContext);
   // console.log("current user", currentUser);
   const token = req.cookies.access_token;
   if (!token) {
@@ -100,28 +100,18 @@ export const updatePost = (req, res) => {
 
   const postId = req.params.id;
 
-  console.log("requestbody=",req.body);
-  // requestbody= {
-  //   title: 'Quantum Computing: Unraveling the Power of Quantum Mechanics',
-  //   desc: '<p>Quantum Computing: Unraveling the Power of Quantum Mechanics</p>',
-  //   cat: 'science',
-  //   img: ''
-  // }
+  console.log(req.body);
   // console.log(req.body);
 
   const q =
     "UPDATE posts SET `title`=?, `desc`=?, `img`=?, `cat`=? WHERE `id`=? AND `uid`=?  ";
-  if(req.body.img=="") {
-    req.body.img = "https://placehold.co/800x400";
-  }
-  console.log("after = ", req.body.img)
 
   const values = [req.body.title, req.body.desc, req.body.img, req.body.cat];
   // db.query(q, [...values, postId, userInfo.id], (err, data) => {
   db.query(q, [...values, postId, 20], (err, data) => {
     console.log("data", data);
     if (err) {
-      return res.status(500).json(err.message);
+      return res.status(500).json(err);
     }
     return res.json("Post has been updated. ");
   });

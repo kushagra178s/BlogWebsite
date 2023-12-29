@@ -1,3 +1,4 @@
+import logo from '../images/logo.jpg'
 import { Link } from 'react-router-dom';
 function Footer() {
   return (

@@ -57,7 +57,7 @@ function Register() {
         />
         <button onClick={handleSubmit}>click</button>
         {error && <p>{error}!</p>}
-        <span style={{fontSize:"20px"}}>
+        <span>
           already have an account <Link to="/Login">Login</Link>{" "}
         </span>
       </form>

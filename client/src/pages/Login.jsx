@@ -49,8 +49,8 @@ function Login() {
         />
         <button onClick={handleSubmit}>click</button>
         {error && <p>{error}!</p>}
-        <span>
-          dont have an account <Link to="/register">Register</Link>{" "}
+        <span style={{fontSize:"20px"}}>
+          Dont Have An Account <Link to="/register">Register</Link>{" "}
         </span>
       </form>
     </div>

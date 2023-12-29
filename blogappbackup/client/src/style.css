@@ -1,14 +1,13 @@
 * {
   margin: 0;
   padding: 0;
-  font-family: 'Arial, sans-serif';
-  font-weight: 600;
 }
 .app {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+
 }
 /* login and registration component */
 .auth {
@@ -22,7 +21,7 @@
 }
 
 .auth h1 {
-  font-size: 35px;
+  font-size: 20px;
   color: rgb(15, 48, 214);
   background-color: rgb(51, 225, 135);
   padding: 10px;
@@ -42,14 +41,12 @@ form {
 }
 
 .auth input {
-  font-size: 25px;
   padding: 10px;
   border: none;
   border-radius: 5px;
   border-bottom: 1px solid gray;
   border-color: aquamarine;
 }
-
 
 .auth button {
   background-color: #3498db;
@@ -60,7 +57,8 @@ form {
 }
 
 .auth p {
-  font-size: 20px;
+  font-size: 12px;
+  color: red;
   text-align: center;
 }
 
@@ -70,7 +68,6 @@ form {
   font-size: 12px;
   text-align: center;
 }
-
 /* navbar */
 .navbar {
 }
@@ -97,7 +94,7 @@ form {
 }
 .navbar .links h6 {
   color: black;
-  font-size: 150%;
+  font-size: 25px;
   font-weight: 600;
 }
 
@@ -107,35 +104,21 @@ form {
 
 .navbar .write {
   padding: 2px;
-  background-color: greenyellow;
+  background-color: rgb(18, 74, 164);
   width: 90px;
   height: 65px;
-  border-radius: 10%;
+  border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   font-weight: 400;
 }
 .navbar .write:hover {
-  background-color: rgb(0, 255, 0);
+  background-color: rgb(136, 229, 195);
 }
 .navbar h6:hover {
-  background-color: green;
+  background-color: rgb(136, 229, 195);
 }
-
-.darkmode {
-  padding: 5px;
-  font-size: 35px;
-  border-radius: 10%;
-  background-color: black;
-  padding: 10px;
-  border: none;
-  cursor: pointer;
-  margin-right: 5px;
-  margin-bottom: 5px;
-  /* color: white; */
-}
-
 /* footer */
 
 .Footer .container {
@@ -160,28 +143,26 @@ form {
 
 .home {
 }
-
 .posts {
   padding-left: 40px;
-  /* padding-right: auto; */
-  margin-top: 25px;
+  padding-right: 40px;
+  margin-top: 50px;
   display: flex;
   flex-direction: column;
-  gap: 45px;
+  gap: 85px;
 }
 
 .posts .post {
-  background-color: #bec9f0;
+  background-color: #1c2238;
   display: flex;
   gap: 10px;
+  color: white;
   padding: 5px;
-  /* border-radius: 2%; */
-  max-width: 75%;
+  border-radius: 2%;
 }
 
-.post:nth-child(2n){
+.posts .post &:nth-child(2n + 1) {
   flex-direction: row-reverse;
-  /* border: 6px solid red; */
 }
 
 .posts .post .img {
@@ -190,10 +171,10 @@ form {
 }
 
 .posts .post img {
-  width: 250px;
+  width: 200px;
   height: 250px;
   /* object-fit: cover; */
-  border: 6px solid teal;
+  border: 6px solid rgb(179, 24, 218);
   border-radius: 5%;
 }
 
@@ -217,40 +198,32 @@ form {
 
 .single {
   justify-content: space-between;
-  /* justify-content:space-evenly; */
-  padding: 0 25px;
+  padding: 0 45px;
   margin-top: 15px;
   display: flex;
   gap: 5px;
-  flex-direction: row;
+  /* flex-direction:column; */
 }
 
-.single .current-post {
-  max-width: 75%;
+.single .current-post .content {
+  flex: 5;
 }
 
 .content img {
-  /* width: 105%; */
   width: 75%;
-  height: 25%;
-  /* object-fit: cover; */
+  width: 550px;
+  height: 250px;
+  object-fit: cover;
   margin-bottom: 15px;
-  border: 4px solid rgb(236, 218, 218);
 }
 
 .single .current-post .user {
-  background-color: lightgreen;
-  padding: 10px;
-  margin: 10px;
+  margin: 5px;
   display: flex;
-  max-width: fit-content;
-  border-radius: 20%;
   /* align-items: center; */
   gap: 10px;
-  font-weight: 600;
-  /* font-size: 14px; */
+  font-size: 14px;
 }
-
 .single .current-post .user img {
   width: 50px;
   height: 50px;
@@ -265,11 +238,7 @@ form {
 }
 .single .current-post .edit {
   display: flex;
-  padding: 5px;
-  gap: 10px;
-  background-color: green;
-  height: 25px;
-  width: fit-content;
+  gap: 5px;
 }
 .single .current-post .edit img {
   width: 20px;
@@ -288,15 +257,9 @@ form {
 
 /* menu */
 .menu {
-  padding: 10px;
-  border: 5px solid teal;
-  border-style: double;
   /* flex:5; */
-  width: 550px;
-  background-color: rgba(92, 148, 220, 0.581);
-  height: fit-content;
-  /* margin-left: 15px; */
-  /* width: 400px; */
+  /* margin-left: 150px; */
+  max-width: 400px;
   display: flex;
   flex-direction: column;
   gap: 25px;
@@ -318,6 +281,7 @@ form {
 }
 .menu .post button {
   background-color: #3498db;
+  color: black;
   padding: 10px;
   border: none;
   cursor: pointer;
@@ -326,7 +290,7 @@ form {
 /* write */
 
 .add {
-  padding: 20px;
+  padding: 10px;
   margin-top: 20px;
   display: flex;
   gap: 20px;
@@ -343,7 +307,7 @@ form {
 }
 
 .add .editorContainer {
-  height: 400px;
+  height: 250px;
   overflow: scroll;
 }
 
@@ -356,7 +320,7 @@ form {
   display: flex;
   flex-direction: column;
   gap: 20px;
-  border: 10px solid rgba(0, 128, 0, 0.441);
+  /* border: 1 px solid lightgray; */
 }
 .add .menu .item {
   text-align: center;
@@ -371,8 +335,7 @@ form {
   font-size: 12px;
 }
 .add .menu .item h1 {
-  font-size: 25px;
-  font-style: italic;
+  font-size: 20px;
 }
 .add .menu .item .file {
   text-decoration: underline;
@@ -383,23 +346,11 @@ form {
   justify-content: space-between;
 }
 
-.buttons button {
-  font-size: 15px;
-  background-color: #3498db;
-  padding: 10px;
-  border: none;
-  cursor: pointer;
-  color: white;
-}
-
 .add .menu .item .cat {
   font-size: 24px;
   font-weight: 600;
   display: flex;
   align-items: center;
+  color: teal;
   gap: 2px;
-}
-
-.item span{
-  font-size: 20px;
 }
