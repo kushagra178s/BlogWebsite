@@ -1,4 +1,4 @@
-# Project Name: React Blog Website
+# Project Name: InfoBlog Website
 
 Description:
 This is a full-stack blog website built using React for the frontend and MySQL for the backend. It allows users to create, read, update, and delete blog posts. The website features a responsive design and a user-friendly interface.
