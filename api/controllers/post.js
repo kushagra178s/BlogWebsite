@@ -7,7 +7,7 @@ export const getPosts = (req, res) => {
   const q = req.query.cat
     ? "SELECT * FROM posts WHERE cat=?"
     : "SELECT * FROM posts";
-  console.log("category=",req.query);
+  // console.log("category=",req.query);
   db.query(q, [req.query.cat], (err, data) => {
     if (err) {
       return res.status(500).send(err);

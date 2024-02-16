@@ -15,10 +15,7 @@ function Navbar() {
         <div className="links">
         <Link to="/">
           <div className="logo">
-            <img
-              src="https://revenuearchitects.com/wp-content/uploads/2017/02/Blog_pic-450x255.png"
-              alt="logo"
-            />
+            <h1 style={{color:"black"}}>InfoBlogs</h1>
           </div>
         </Link>
         {/* <button className="darkmode" onClick={()=>setDarkMode(darkMode=="white"?"black":"white")}>🌗</button> */}
@@ -43,16 +40,17 @@ function Navbar() {
             <h6>Food</h6>
           </Link>
           {currentUser ? (
-            <>
-              <h1 style={{ backgroundColor: "#3498db", padding: "5px" }}>
+            <div className="user-info">
+              <h2 >
                 {currentUser?.username}
-              </h1>
-              <span onClick={logout} className="write">
+                <p onClick={logout} className="write">
                 Logout
-              </span>
-            </>
+              </p>
+              </h2>
+              
+            </div>
           ) : (
-            <Link className="link" to="/login" className="write">
+            <Link className="link write" to="/login" >
               Login
             </Link>
           )}

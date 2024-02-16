@@ -1,7 +1,7 @@
 * {
   margin: 0;
   padding: 0;
-  font-family: 'Arial, sans-serif';
+  font-family: "Arial, sans-serif";
   font-weight: 600;
 }
 .app {
@@ -50,7 +50,6 @@ form {
   border-color: aquamarine;
 }
 
-
 .auth button {
   background-color: #3498db;
   padding: 10px;
@@ -76,18 +75,18 @@ form {
 }
 .navbar .container {
   background-color: teal;
-  padding: 10px;
+  padding: 5px 10px;
   /* padding: 10px 0px; */
   display: flex;
   justify-content: space-between;
 }
 
-.navbar .logo img {
+/* .navbar .logo img {
   width: 125px;
-  /* border-radius: 50%; */
-}
-.navbar .logo {
-}
+  border-radius: 50%;
+} */
+/* .navbar .logo {
+} */
 
 .navbar .links {
   text-decoration: none;
@@ -107,9 +106,9 @@ form {
 
 .navbar .write {
   padding: 2px;
-  background-color: greenyellow;
-  width: 90px;
-  height: 65px;
+  /* background-color: greenyellow; */
+  /* width: 90px; */
+  /* height: 65px; */
   border-radius: 10%;
   display: flex;
   align-items: center;
@@ -121,6 +120,21 @@ form {
 }
 .navbar h6:hover {
   background-color: green;
+}
+
+.user-info {
+  /* border: 2px solid red; */
+  text-align: center;
+  text-decoration: underline;
+  margin: 10px;
+  background-color: #3498db;
+  padding: 5px;
+  border-radius: 20%;
+  display: flex;
+  flex-direction: column;
+  p{
+    font-size: medium;
+  }
 }
 
 .darkmode {
@@ -179,7 +193,7 @@ form {
   max-width: 75%;
 }
 
-.post:nth-child(2n){
+.post:nth-child(2n) {
   flex-direction: row-reverse;
   /* border: 6px solid red; */
 }
@@ -205,6 +219,7 @@ form {
   flex-direction: column;
   justify-content: space-between;
 }
+
 .posts .post button {
   background-color: #3498db;
   padding: 10px;
@@ -231,8 +246,8 @@ form {
 
 .content img {
   /* width: 105%; */
-  width: 75%;
-  height: 25%;
+  width: 250px;
+  /* height: 25%; */
   /* object-fit: cover; */
   margin-bottom: 15px;
   border: 4px solid rgb(236, 218, 218);
@@ -400,6 +415,6 @@ form {
   gap: 2px;
 }
 
-.item span{
+.item span {
   font-size: 20px;
 }

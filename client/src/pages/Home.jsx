@@ -72,7 +72,7 @@ function Home() {
                     </Link>
                     <br />
                     <h2>
-                      {getText(post.desc).split(" ").slice(0, 55).join(" ")}
+                      {getText(post.desc).split(" ").slice(0, 35).join(" ")}
                       .....
                     </h2>
                     <Link

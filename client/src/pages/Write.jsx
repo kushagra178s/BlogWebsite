@@ -10,7 +10,7 @@ function write() {
   const [value, setValue] = useState(state?.title || "");
   const [title, setTitle] = useState(state?.title || "");
   const [file, setFile] = useState(null);
-  const [cat, setCat] = useState(state?.cat || "");
+  const [cat, setCat] = useState(state?.cat || "art");
   const storage = localStorage.getItem("user");
   const userId = JSON.parse(storage).id;
   const upload = async () => {
@@ -63,7 +63,7 @@ function write() {
           }}
         />
         <div className="editorContainer">
-          <ReactQuill theme="snow" value={value} onChange={setValue} />
+          <ReactQuill theme="snow" style={{height:"390px"}} value={value} onChange={setValue} />
         </div>
       </div>
       <div className="menu">
