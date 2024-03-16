@@ -4,3 +4,5 @@
 /blogappbackup
 /client/src/uploads
 /api/node_modules
+/.gitignore
+/client/.gitignore
