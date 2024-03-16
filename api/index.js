@@ -36,7 +36,9 @@ app.post('/api/upload', upload.single('file'), function (req, res) {
 });
 
 app.use('/api/posts', postRouter);
+
 app.use('/api/user', userRouter);
+
 app.use('/api/auth', authRouter);
 
 app.listen(8800, () => {

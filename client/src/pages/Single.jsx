@@ -30,10 +30,10 @@ function Single() {
   }, [postId]);
     
   // Add a useEffect to log 'posts' whenever it changes
-  useEffect(() => {
-    // console.log("posts after set:", post.cat);
-    console.log("authcontext", AuthContext);
- }, [post]);
+//   useEffect(() => {
+//     // console.log("posts after set:", post.cat);
+//     console.log("authcontext", AuthContext);
+//  }, [post]);
 
   const handleDelete = async () => {
     try {
@@ -47,6 +47,7 @@ function Single() {
   };
 
   const getText = (html) => {
+    console.log(html);
     const doc = new DOMParser().parseFromString(html, "text/html");
     return doc.body.textContent; 
   };
@@ -95,7 +96,8 @@ function Single() {
         <div className="post-content">
           <h1><u>{post.title}</u></h1>
           <br />
-          <p>{getText(post.desc)}</p>
+          {/* <p>{getText(post.desc)}</p> */}
+          <div dangerouslySetInnerHTML={{ __html: post.desc }} />
         </div>
       </div>
       <Menu post={post} />

@@ -41,14 +41,14 @@ export const addPost = (req, res) => {
   const q =
     "INSERT INTO posts ( `title`, `desc`, `img`, `cat`, `date`, `uid` ) VALUES ( ? ) ";
 
-  console.log("request image", req.body.img);
+  // console.log("request image", req.body.img);
   const values = [
     req.body.title,
     req.body.desc,
     req.body.img,
     req.body.cat,
     req.body.date,
-    req.body.uid, 
+    req.body.uid,
     // 20,
     // userInfo.id,
   ];
@@ -63,27 +63,32 @@ export const addPost = (req, res) => {
 };
 
 export const deletePost = (req, res) => {
-  const { currentUser, logout } = useContext(AuthContext);
+  // const { currentUser, logout } = useContext(AuthContext);
   // console.log("current user", currentUser);
-  const token = req.cookies.access_token;
-  if (!token) {
-    // console.log("token", token);
-    return res.status(401).json("not authenticated");
-  }
+  // const token = req.cookies.access_token;
+  // if (!token) {
+  //   // console.log("token", token);
+  //   return res.status(401).json("not authenticated");
+  // }
 
-  jwt.verify(token, "jwtkey", (err, userInfo) => {
-    if (err) {
-      return res.status(401).json("token is not valid");
-    }
+  // jwt.verify(token, "jwtkey", (err, userInfo) => {
+  //   if (err) {
+  //     return res.status(401).json("token is not valid");
+  //   }
+  try {
     const postId = req.params.id;
-    const q = "DELETE FROM posts WHERE `id` = ? AND `uid` = ?";
-    db.query(q, [postId, userInfo.id], (err, data) => {
+    const q = "DELETE FROM posts WHERE `id` = ?";
+    db.query(q, [postId], (err, data) => {
       if (err) {
         return res.status(401).json("you can only delete your post");
       }
       return res.json("post has been deleted");
     });
-  });
+  } catch (e) {
+    console.log("delete error = ", e);
+  }
+
+  // });
 };
 
 export const updatePost = (req, res) => {
@@ -98,9 +103,9 @@ export const updatePost = (req, res) => {
   //     return res.status(401).json("token is not valid");
   //   }
 
-  const postId = req.params.id;
+  // const postId = req.params.id;
 
-  console.log("requestbody=",req.body);
+  // console.log("requestbody=",req.body);
   // requestbody= {
   //   title: 'Quantum Computing: Unraveling the Power of Quantum Mechanics',
   //   desc: '<p>Quantum Computing: Unraveling the Power of Quantum Mechanics</p>',
@@ -108,23 +113,29 @@ export const updatePost = (req, res) => {
   //   img: ''
   // }
   // console.log(req.body);
+  try {
+    const postId = req.params.id;
 
-  const q =
-    "UPDATE posts SET `title`=?, `desc`=?, `img`=?, `cat`=? WHERE `id`=? AND `uid`=?  ";
-  if(req.body.img=="") {
-    req.body.img = "https://placehold.co/800x400";
+
+    const q =
+      "UPDATE posts SET `title`=?, `desc`=?, `img`=?, `cat`=? WHERE `id`=?";
+    // if (req.body.img == "") {
+    //   req.body.img = "https://placehold.co/800x400";
+    // }
+    // console.log("after = ", req.body.img)
+
+    const values = [req.body.title, req.body.desc, req.body.img, req.body.cat];
+    // db.query(q, [...values, postId, userInfo.id], (err, data) => {
+    db.query(q, [...values, postId], (err, data) => {
+      // console.log("data", data);
+      if (err) {
+        return res.status(500).json(err.message);
+      }
+      return res.json("Post has been updated. ");
+    });
+  } catch (e) {
+    console.log("update error = ", e);
   }
-  console.log("after = ", req.body.img)
-
-  const values = [req.body.title, req.body.desc, req.body.img, req.body.cat];
-  // db.query(q, [...values, postId, userInfo.id], (err, data) => {
-  db.query(q, [...values, postId, 20], (err, data) => {
-    console.log("data", data);
-    if (err) {
-      return res.status(500).json(err.message);
-    }
-    return res.json("Post has been updated. ");
-  });
 
   // });
 };

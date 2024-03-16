@@ -1,5 +1,6 @@
-/api/node_modules
 /node_modules
-/client/public/upload
+/client/public/uploads
 /api/uploads
 /blogappbackup
+/client/src/uploads
+/api/node_modules

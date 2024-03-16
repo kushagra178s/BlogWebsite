@@ -7,12 +7,13 @@ import moment from "moment";
 function write() {
   const navigate = useNavigate();
   const state = useLocation().state;
-  const [value, setValue] = useState(state?.title || "");
+  const [value, setValue] = useState(state?.desc || "");
   const [title, setTitle] = useState(state?.title || "");
-  const [file, setFile] = useState(null);
+  const [file, setFile] = useState();
   const [cat, setCat] = useState(state?.cat || "art");
   const storage = localStorage.getItem("user");
   const userId = JSON.parse(storage).id;
+  console.log("from update = ", state);
   const upload = async () => {
     try {
       const formData = new FormData();
@@ -21,7 +22,7 @@ function write() {
         "http://localhost:8800/api/upload/",
         formData
       );
-      console.log(res.data);
+      // console.log(res.data);
       return res.data;
     } catch (err) {
       console.log("error = ",err);
@@ -36,7 +37,7 @@ function write() {
             title,
             desc: value,
             cat,
-            img: file ? imgUrl : "",
+            img: file ? imgUrl : state?.img || "",
           })
         : await axios.post(`http://localhost:8800/api/posts/`, {
             title,
@@ -46,7 +47,7 @@ function write() {
             date: moment(Date.now()).format("YYYY-MM-DD HH:mm:ss"),
             uid: userId,
           });
-      navigate("/");
+      setTimeout(()=>navigate("/"), 2000);
     } catch (err) {
       console.log("here is the error", err);
     }

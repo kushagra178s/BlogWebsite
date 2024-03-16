@@ -190,7 +190,7 @@ form {
   gap: 10px;
   padding: 5px;
   /* border-radius: 2%; */
-  max-width: 75%;
+  max-width: 85%;
 }
 
 .post:nth-child(2n) {
@@ -218,6 +218,9 @@ form {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  /* border: 2px solid red; */
+  width: 100%;
+
 }
 
 .posts .post button {
@@ -242,6 +245,7 @@ form {
 
 .single .current-post {
   max-width: 75%;
+  /* border: 2px solid red; */
 }
 
 .content img {
@@ -249,6 +253,8 @@ form {
   width: 250px;
   /* height: 25%; */
   /* object-fit: cover; */
+  width: 80%;
+  height: 55vh;
   margin-bottom: 15px;
   border: 4px solid rgb(236, 218, 218);
 }
@@ -259,7 +265,7 @@ form {
   margin: 10px;
   display: flex;
   max-width: fit-content;
-  border-radius: 20%;
+  border-radius: 20px;
   /* align-items: center; */
   gap: 10px;
   font-weight: 600;
@@ -282,9 +288,10 @@ form {
   display: flex;
   padding: 5px;
   gap: 10px;
-  background-color: green;
+  background-color: rgb(15, 228, 72);
   height: 25px;
   width: fit-content;
+  border-radius:10px ;
 }
 .single .current-post .edit img {
   width: 20px;
